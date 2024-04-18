@@ -12,6 +12,11 @@ const userschema = new schema({
         type : String ,
         required : true
     }
+    ,
+    isadmin : {
+        type : Boolean,
+        default : true
+    }
 
 });
 
