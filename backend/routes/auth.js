@@ -10,7 +10,15 @@ const router = express.Router();
 
 router.get('/',authcontroller.getindex);
 router.get('/signup', middleware.notloggedin ,authcontroller.getsignup);
-router.post('/signup',authcontroller.postsignup);
+router.post('/signup', body('email')
+.custom( async ( value , {req}) => {
+    const user = await User.findOne({ email : req.body.email });
+
+    if (user)
+    {
+        throw new Error('email id already exists')
+    }
+}) ,authcontroller.postsignup);
 router.get('/login', middleware.notloggedin ,authcontroller.getlogin);
 router.post('/login', [
     body('email' , 'email not valid')
@@ -42,6 +50,17 @@ router.post('/login', [
     })
 ] ,authcontroller.postlogin);
 router.get('/reset',authcontroller.getreset);
+router.post('/reset',  body('email')
+.custom( async (value , {req}) => {
+   const user = await User.findOne({ email : req.body.email });
+
+   if (!user)
+   {
+       throw new Error('email id not found')
+   }
+}), authcontroller.postreset)
+router.get('/reset/:token',authcontroller.getnewpassword)
+router.post('/setnewpassword', authcontroller.setnewpassword);
 router.get('/logout',authcontroller.getlogout);
 
 module.exports = router;

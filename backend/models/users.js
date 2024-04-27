@@ -16,8 +16,9 @@ const userschema = new schema({
     isadmin : {
         type : Boolean,
         default : true
-    }
-
+    } ,
+    resetoken : String ,
+    resetokenexpire : Date
 });
 
 module.exports = mongoose.model('user',userschema);

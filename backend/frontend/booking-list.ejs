@@ -42,22 +42,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/admin">Calendar</a>
+                <a class="nav-link <% if (path === '/booking-list') { %> 'active' <% } else { %> ' ' <% } %>  " aria-current="page" href="/admin">Calendar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/admin/booking-list">Booking List</a>
+                <a class="nav-link <% if (path === '/booking-list') { %> active <% } else { %> ' ' <% } %>  "" href="/admin/booking-list">Booking List</a>
               </li>
             </ul>
             <div class="h-100 d-lg-inline-flex align-items-center">
               <ul class="app-nav">
                 <!--Notification Menu-->
                 <li class="dropdown"><a class="app-nav__item notification-num" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="icon-bell"></i>
-                <span class="num">5</span>
+                <span class="num">0</span>
                 </a></li>
                 <!-- User Menu-->
-                <li class="dropdow"><a class="app-nav__item dropdown-toggle" href="#" data-toggle="dropdown" aria-label="Open Profile Menu">Admin</a>
-                  <ul class="dropdown-menu settings-menu dropdown-menu-left">
-                    <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#changepwdModal">Change Password</a></li>
+                <li class="dropdown"><a class="app-nav__item dropdown-toggle" href="" data-toggle="dropdown" aria-label="Open Profile Menu">Admin</a>
+                  <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <li><a class="dropdown-item" href="" data-toggle="modal" data-target="#changepwdModal">Change Password</a></li>
                     <li><a class="dropdown-item" href="/logout">Logout</a></li>
                   </ul>
                 </li>
@@ -306,13 +306,13 @@
 
 
     <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
-    <script src="js/plugins/pace.min.js"></script>
+    <script src="/js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
   </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating and Appending Elements</title>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Existing content here -->
+</div>
+
+<script>
+    // Create a new div element
+    var newDiv = document.createElement("div");
+    newDiv.className = "box"; // Add a class to the new div
+    newDiv.textContent = "New Box"; // Add some text content to the new div
+
+    // Append the new div to the container
+    var container = document.getElementById("container");
+    container.appendChild(newDiv);
+
+    // Create a new span element
+    var newSpan = document.createElement("span");
+    newSpan.textContent = " (Appended Span)"; // Add text content to the span
+
+    // Append the span to the new div
+    newDiv.appendChild(newSpan);
+</script>
+
+</body>
+</html>
