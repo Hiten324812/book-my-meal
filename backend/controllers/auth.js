@@ -165,8 +165,7 @@ exports.postreset = (req,res,next) => {
 
     if ( !errors.isEmpty() )
     {
-        console.log(errors.array());
-
+    
         req.flash('error','No email id found')
 
        return res.redirect('/reset');

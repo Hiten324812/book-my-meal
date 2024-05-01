@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search with Suggestions</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <input type="text" id="searchInput" placeholder="Search...">
+    <div id="suggestions"></div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const suggestionContainer = document.getElementById('suggestions');
+
+        searchInput.addEventListener('input', async () => {
+            const query = searchInput.value.trim();
+            if (query === '') {
+                suggestionContainer.innerHTML = '';
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://127.0.0.1:3000/search?q=${query}`);
+                const suggestions = await response.json();
+             const text = suggestions.map(suggestion => `<h1>${suggestion}</h1>`).join('');
+               suggestionContainer.innerHTML = text
+            } catch (error) {
+                console.error('Error fetching suggestions:', error);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -36,5 +36,6 @@ const currentMonthName = monthNames[currentMonthIndex];
 
 
 exports.getbookinglist = (req,res,next) => {
+
     res.render('booking-list' , {path : '/booking-list'})
 }
