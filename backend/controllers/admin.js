@@ -1,4 +1,5 @@
 
+const User = require('../models/users')
 
 exports.getadmin = (req,res,next) => {
     // Get the current date
@@ -37,5 +38,15 @@ const currentMonthName = monthNames[currentMonthIndex];
 
 exports.getbookinglist = (req,res,next) => {
 
-    res.render('booking-list' , {path : '/booking-list'})
+     const userlist = User.find({ isadmin : false })
+     .then( result => {
+      console.log(result);
+
+      return res.render('booking-list' , {path : '/booking-list' , userlist : result})
+
+     })
+     .catch ( err => {
+      console.log(err);
+     })
+     
 }

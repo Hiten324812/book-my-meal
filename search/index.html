@@ -25,7 +25,9 @@
 
             try {
                 const response = await fetch(`http://127.0.0.1:3000/search?q=${query}`);
+                console.log(response);
                 const suggestions = await response.json();
+                console.log(suggestions);
              const text = suggestions.map(suggestion => `<h1>${suggestion}</h1>`).join('');
                suggestionContainer.innerHTML = text
             } catch (error) {

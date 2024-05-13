@@ -15,10 +15,12 @@ const userschema = new schema({
     ,
     isadmin : {
         type : Boolean,
-        default : true
+        default : false
     } ,
     resetoken : String ,
-    resetokenexpire : Date
+    resetokenexpire : Date ,
+
+    department : String
 });
 
 module.exports = mongoose.model('user',userschema);

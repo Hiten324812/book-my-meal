@@ -15,6 +15,11 @@ function  HookMouse(){
         document.title = `${x}`
         console.log('mouse over')
         window.addEventListener('mousemove', logpositionmouse)
+
+        return () => {
+         console.log('component unmounting');
+         window.removeEventListener('mousemove',logpositionmouse)
+        }
     } ,[] )
 
 

@@ -238,6 +238,10 @@
             <th>Department</th>
           </tr>
         </thead>
+         <% if (userlist.length > 0)  { %>
+
+         <% for (let user of userlist) { %>
+
         <tbody>
 
           <tr>
@@ -248,47 +252,31 @@
                   </label>
                 </div>
             </td>
-            <td>2001</td>
-            <td>Thomas</td>
-            <td>Analytics</td>
+            <td><%= user._id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.department %></td>
+
+           
+  
+          
           </tr>
-          <tr>
-            <td>
-                <div class="form-group mb-0">
-                  <label class="custom-checkbox m-0">
-                    <input class="checkbox__input" type="checkbox"/><span class="checkbox__checkmark"></span>
-                  </label>
-                </div>
-            </td>
-            <td>2001</td>
-            <td>Thomas</td>
-            <td>Analytics</td>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group mb-0">
-                  <label class="custom-checkbox m-0">
-                    <input class="checkbox__input" type="checkbox"/><span class="checkbox__checkmark"></span>
-                  </label>
-                </div>
-            </td>
-            <td>2001</td>
-            <td>Thomas</td>
-            <td>Analytics</td>
-          </tr>
-          <tr>
-            <td>
-                <div class="form-group mb-0">
-                  <label class="custom-checkbox m-0">
-                    <input class="checkbox__input" type="checkbox"/><span class="checkbox__checkmark"></span>
-                  </label>
-                </div>
-            </td>
-            <td>2001</td>
-            <td>Thomas</td>
-            <td>Analytics</td>
-          </tr>
+        
         </tbody>
+
+
+         <% } %>
+
+         <% } else { %>
+
+         <tbody>
+         <tr>
+         <td colspan="4" > 
+           employee list empty 
+         </td>
+         </tr>
+         </tbody>
+
+        <% } %>
       </table>
     </div>
 				</div>
